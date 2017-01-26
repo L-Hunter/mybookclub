@@ -1,2 +1,48 @@
 <h1>Clubs#edit</h1>
 <p>Find me in app/views/clubs/edit.html.erb</p>
+
+<div>
+	<%= form_for @club do |f| %>
+	  <%= f.hidden_field :user_id, value: current_user.id %>
+
+	  <div class="field">
+	    <%= f.label :club_name, value: "Club Name: " %><br />
+	    <%= f.text_field :club_name, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :description, value: "Description: " %><br />
+	    <%= f.text_field :description, autofocus: true %>
+	  </div>
+
+
+	<div class="field">  
+		<p>Is this club open to the public?</p>
+	 	<%= f.label :is_public, "Public", :value => true %>
+		<%= f.radio_button :is_public, true %>
+		
+		<%= f.label :is_public, "Private", :value => false %>
+		<%= f.radio_button :is_public, false %>
+	</div>
+
+
+	  <div class="field">
+	    <%= f.label :club_pass, value: "Enter a password for your club: " %></div>
+	    <%= f.text_field :club_pass, autofocus: true %>
+	  </div>
+
+  	  <div class="field">
+    	<%= f.label "Upload an image" %>
+    	<%= f.file_field :avatar, autofocus: true %>
+ 	  </div>
+
+	  <div class="actions">
+	    <%= f.submit "Update" %>
+	  </div>
+	<% end %>
+</div>
+
+<!-- Ability to delete -->
+<div>
+	<%= button_to "Delete This Club", @club, method: :delete, data: { confirm: "Are you sure you want to delete this club?" } %>		
+</div>
