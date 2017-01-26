@@ -3,6 +3,15 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    # @current_user = current_user
+    # @clubs = Club.all
+    # @meetings = Meeting.all
+    # @user = User.find(params[:id])
+    if params[:id]
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
   end
 
   def new
