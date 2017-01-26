@@ -15,8 +15,13 @@
 <div>
 	<h3>Your Clubs</h3>
 	<%= button_to "Create New Club", new_club_path, :method => "get" %>
+	
 	<ul>
-		<li>Your club here!</li>
-		<li>Your other club</li>
+	<% @user.clubs.each do |club| %>
+		<li><%= club.club_name %> <%= button_to "View Club", club_path(club.id), :method => "get" %>
+			<%= button_to "Edit Club", edit_club_path(club.id), :method => "get" %>
+		</li>
+	<% end %>
 	</ul>
+	
 </div>

@@ -1,2 +1,28 @@
-<h1>Clubs#show</h1>
-<p>Find me in app/views/clubs/show.html.erb</p>
+<h1><%= @club.club_name %></h1>
+
+<!-- Club Info -->
+<div>
+	<p>
+		Club Name: <%= @club.club_name %><br>
+		Description: <%= @club.description %><br>
+		Is Public?: <%= @club.is_public %><br>
+		Club Password: <%= @club.club_pass %><br>
+		Club Coordinator: <%= @club.user_id %>
+	</p>
+</div>
+
+<!-- Club Coordinator Info -->
+<div>
+	<% @users.each do |user| %>
+		<% if user.id == @club.user_id %>
+			<p>Name: <%= user.fname %> <%= user.lname %><br>
+			email: <%= user.email %>
+			id: <%= user.id %></p>
+		<% end %>
+	<% end %>
+</div>
+
+<!-- avatar -->
+<div style="width:100px;">
+	<%= image_tag @club.avatar.url %>	
+</div>

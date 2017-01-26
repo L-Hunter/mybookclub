@@ -4,7 +4,8 @@ class ProfilesController < ApplicationController
 
   def show
     # @current_user = current_user
-    # @clubs = Club.all
+    @clubs = Club.all
+    # @club = Club.find(params[:id])
     # @meetings = Meeting.all
     # @user = User.find(params[:id])
     if params[:id]
