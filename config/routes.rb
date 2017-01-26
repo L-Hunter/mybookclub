@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
  
+  get 'profiles/index'
+
+  get 'profiles/show'
+
+  get 'profiles/new'
+
+  get 'profiles/create'
+
+  get 'profiles/edit'
+
+  get 'profiles/update'
+
+  get 'profiles/destroy'
+
   # get 'static_pages/home'
   root 'static_pages#home'
 

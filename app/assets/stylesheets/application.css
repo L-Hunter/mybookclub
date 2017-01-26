@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+ 	padding-top: 50px;
+ }
+
+.background_image {
+	width: 100%;
+	background-image: url('openbook.jpg');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 700px;
+	color: white;
+	text-align: center;
+
+}
