@@ -2,6 +2,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 
+  protected
+
+  def after_sign_up_path_for(resource)
+      '/profiles/show'
+  end
+
+  def after_update_path_for(resource)
+      '/profiles/show'
+  end
+
+  private
+
+  def sign_up_params
+    params.require(:user).permit(:fname, :lname, :email, :password)
+  end
+
+  def account_update_params
+    params.require(:seller).permit(:fname, :lname, :email, :password, :password_confirmation, :current_password)
+  end
+
   # GET /resource/sign_up
   # def new
   #   super

@@ -1,2 +1,22 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<h1>Welcome, <%= @current_user.fname %>!</h1>
+
+<div>
+	<h3>Account Info:</h3>
+	<p><%= current_user.fname %> <%= current_user.lname %><br>
+	<%= current_user.email %></p>
+
+	<% if current_user %>
+		<% if current_user.id == @user.id %>
+			<%= button_to "Edit Account", edit_user_registration_path, :method => "get" %>
+		<% end %>
+	<% end %>
+</div>
+
+<div>
+	<h3>Your Clubs</h3>
+	<%= button_to "Create New Club", new_club_path, :method => "get" %>
+	<ul>
+		<li>Your club here!</li>
+		<li>Your other club</li>
+	</ul>
+</div>
