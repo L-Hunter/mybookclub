@@ -1,2 +1,53 @@
-<h1>Meetings#edit</h1>
-<p>Find me in app/views/meetings/edit.html.erb</p>
+<h1>Edit Meeting</h1>
+
+<div>
+	<%= form_for @meeting do |f| %>
+	  <%= f.hidden_field :club_id, value: @meeting.club_id %>
+
+	  <div class="field">
+	    <%= f.label :date, value: "Meeting Date: " %><br />
+	    <%= f.text_field :date, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :time, value: "Time: " %><br />
+	    <%= f.text_field :time, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :host, value: "Host: " %><br>
+	    <%= f.text_field :host, autofocus: true %>
+	  </div>
+
+	  <div class="field">  
+	    <%= f.label :street, value: "Street Address: " %><br />
+	    <%= f.text_field :street, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :city, value: "City: " %><br>
+	    <%= f.text_field :city, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :state, value: "State: " %><br>
+	    <%= f.text_field :state, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :zip, value: "Zipcode: " %><br>
+	    <%= f.text_field :zip, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :comment, value: "Comments: " %><br>
+	    <%= f.text_field :comment, autofocus: true %>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit "Update" %>
+	  </div>
+	<% end %>
+</div>
+
+

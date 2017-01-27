@@ -1,2 +1,16 @@
 <h1>Meetings#show</h1>
 <p>Find me in app/views/meetings/show.html.erb</p>
+
+
+<p>When: <%= @meeting.date %> at <%= @meeting.time %><br>
+Host: <%= @meeting.host %><br>
+Where:<br>
+<%= @meeting.street %><br>
+<%= @meeting.city %>, <%= @meeting.state %> <%= @meeting.zip %><br>
+Comments: <%= @meeting.comment%><br>
+Club Id <%= @meeting.club_id%>
+</p>
+
+<%= button_to "Edit Meeting", edit_meeting_path, :method => "get" %>
+<%= button_to "View Club", club_path(@meeting.club_id), :method => "get" %>
+<%= button_to "Delete This Meeting", @meeting, method: :delete, data: { confirm: "Are you sure you want to delete this meeting?" } %>		
