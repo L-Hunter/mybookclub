@@ -2,17 +2,20 @@
 
 <!-- Club Info -->
 <div>
+	<h3>Club Information</h3>
 	<p>
 		Club Name: <%= @club.club_name %><br>
 		Description: <%= @club.description %><br>
 		Is Public?: <%= @club.is_public %><br>
 		Club Password: <%= @club.club_pass %><br>
 		Club Coordinator: <%= @club.user_id %>
+		<%= button_to "Edit Club", edit_club_path, :method => "get" %>
 	</p>
 </div>
 
 <!-- Club Coordinator Info -->
 <div>
+	<h3>Club Coordinator</h3>
 	<% @users.each do |user| %>
 		<% if user.id == @club.user_id %>
 			<p>Name: <%= user.fname %> <%= user.lname %><br>
@@ -25,4 +28,69 @@
 <!-- avatar -->
 <div style="width:100px;">
 	<%= image_tag @club.avatar.url %>	
+</div>
+
+<!-- list meetings -->
+<h3>Meetings</h3>
+<ul>
+	<% @club.meetings.each do |meeting| %>
+		<li><%= meeting.date %> at <%= meeting.time %>. Meeting id: <%= meeting.id %>		
+		<%= button_to "View Meeting", meeting_path(meeting.id), :method => "get" %>
+		</li>	
+		
+	<% end %>
+</ul>
+
+<p>The link below leads to a form that currently doesn't work</p>
+<%= button_to "Add Meeting", new_meeting_path, :method => "get" %>
+<!-- Add new Meeting -->
+<div>
+	<h3>Schedule a New Meeting</h3>
+	<%= form_for Meeting.new do |f| %>
+	  <%= f.hidden_field :club_id, value: @club.id %>
+
+	  <div class="field">
+	    <%= f.label :date, value: "Meeting Date: " %><br />
+	    <%= f.text_field :date, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :time, value: "Time: " %><br />
+	    <%= f.text_field :time, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :host, value: "Host: " %><br>
+	    <%= f.text_field :host, autofocus: true %>
+	  </div>
+
+	  <div class="field">  
+	    <%= f.label :street, value: "Street Address: " %><br />
+	    <%= f.text_field :street, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :city, value: "City: " %><br>
+	    <%= f.text_field :city, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :state, value: "State: " %><br>
+	    <%= f.text_field :state, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :zip, value: "Zipcode: " %><br>
+	    <%= f.text_field :zip, autofocus: true %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :comment, value: "Comments: " %><br>
+	    <%= f.text_field :comment, autofocus: true %>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit "Sign up" %>
+	  </div>
+	<% end %>
 </div>

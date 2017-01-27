@@ -27,6 +27,8 @@ class ClubsController < ApplicationController
   end
 
   def update
+    @club = Club.find(params[:id])
+    @club.update(club_params)
     redirect_to club_path
   end
 
