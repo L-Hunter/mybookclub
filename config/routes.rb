@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   # get 'static_pages/about'
   get '/about', to: 'static_pages#about'
 
-  resources :clubs, :meetings, :choices, :books
+  resources :choices, :books
+
+  resources :clubs do 
+    resources :meetings
+  end
 
   # get 'choices/index'
 

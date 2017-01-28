@@ -11,6 +11,6 @@ Comments: <%= @meeting.comment%><br>
 Club Id <%= @meeting.club_id%>
 </p>
 
-<%= button_to "Edit Meeting", edit_meeting_path, :method => "get" %>
+<%= button_to "Edit Meeting", edit_club_meeting_path, :method => "get" %>
 <%= button_to "View Club", club_path(@meeting.club_id), :method => "get" %>
-<%= button_to "Delete This Meeting", @meeting, method: :delete, data: { confirm: "Are you sure you want to delete this meeting?" } %>		
+<%= button_to "Delete This Meeting", [@club, @meeting], method: :delete, data: { confirm: "Are you sure you want to delete this meeting?" } %>		

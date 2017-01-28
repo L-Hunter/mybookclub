@@ -1,7 +1,7 @@
 <h1>Edit Meeting</h1>
 
 <div>
-	<%= form_for @meeting do |f| %>
+	<%= form_for [@club, @meeting] do |f| %>
 	  <%= f.hidden_field :club_id, value: @meeting.club_id %>
 
 	  <div class="field">

@@ -1,12 +1,9 @@
-<h1>Meetings#new</h1>
-<p>Find me in app/views/meetings/new.html.erb</p>
 
-<!-- currently this form DOES NOT assign the club_id correctly -->
 <h1>Schedule a Book Club Meeting</h1>
 
 <div>
-	<%= form_for Meeting.new do |f| %>
-	  <%= f.hidden_field :club_id, value: club.id %>
+	<%= form_for [@club, @meeting] do |f| %>
+	  <%= f.hidden_field :club_id, value: @club.id %>
 
 	  <div class="field">
 	    <%= f.label :date, value: "Meeting Date: " %><br />
@@ -49,7 +46,7 @@
 	  </div>
 
 	  <div class="actions">
-	    <%= f.submit "Sign up" %>
+	    <%= f.submit "Schedule Meeting" %>
 	  </div>
 	<% end %>
 </div>
