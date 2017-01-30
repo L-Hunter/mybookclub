@@ -4,6 +4,10 @@
 	<%= form_for [@club, @meeting] do |f| %>
 	  <%= f.hidden_field :club_id, value: @meeting.club_id %>
 
+		<div id="remote" class="field">
+	 		 <input class="typeahead" type="text" placeholder="Find a book for your meeting">
+		</div>
+
 	  <div class="field">
 	    <%= f.label :date, value: "Meeting Date: " %><br />
 	    <%= f.text_field :date, autofocus: true %>
