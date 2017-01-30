@@ -4,6 +4,32 @@
 <div>
 	<%= form_for [@club, @meeting] do |f| %>
 	  <%= f.hidden_field :club_id, value: @club.id %>
+ 		<p>Search for a book</p>
+ 		<select id="booksearch">
+		  <option value="none" selected="selected">Select a book</option>
+		</select>
+	  
+	  <div id="book-preview" class="row">
+	  	<div class="col-lg-2" id="book-preview-thumb">
+	  	</div>
+	  	<div class="col-lg-4 book-meta">
+	  		<div>
+	  			<span>Title: </span><span id="book-meta-title"></span>
+	  		</div>
+	  		<div>
+	  			<span>Author: </span><span id="book-meta-author"></span>
+	  		</div>
+	  	</div>
+	  </div>
+
+	  <div id="hidden-book-fields">
+	  	<!-- ThIS SHOULD BE DONE WITH ERB -->
+	  	<input type="hidden" id="book-title" value="" />
+	  	<input type="hidden" id="book-author" value="" />
+		<input type="hidden" id="book-image" value="" />
+	  	<input type="hidden" id="book-description" value="" />
+	  </div>
+
 
 	  <div class="field">
 	    <%= f.label :date, value: "Meeting Date: " %><br />
