@@ -12,13 +12,14 @@ $(document).ready(function(e) {
     	'description': $('#book-description')
     }
 
+    //info displayed in search box
     function renderTitle(book) {
         if (!book || !book.volumeInfo) {
             return '<span>No results</span>';
         }
-        return '<span>' + book.volumeInfo.title + '</span> - <span>' + book.volumeInfo.authors.join(', ') + '</span>'
+        return '<span>' + book.volumeInfo.title + '</span> by <span>' + book.volumeInfo.authors.join(', ') + '</span>'
     }
-
+    //displays renderTitle with cook cover in search options
     function renderBook(book) {
         if (!book || !book.volumeInfo) {
             return $('<span>No results</span>');
@@ -30,6 +31,7 @@ $(document).ready(function(e) {
         return $result;
     };
 
+    //select2 search feature
     $booksearch = $('#booksearch').select2({
         ajax: {
             url: function(params) {
@@ -70,13 +72,23 @@ $(document).ready(function(e) {
     $booksearch.on("select2:select", function(e) {
         // Create your hidden fields
         console.log("select2:select", e.params.data);
-        //Set the hidden fields in the erb with this
+        console.log("select2:select", e.params.data.volumeInfo.title);
+        //Set the hidden fields
         $hiddenBookData.title.val(e.params.data.volumeInfo.title);
         $hiddenBookData.author.val(e.params.data.volumeInfo.authors.join(', '));
         $hiddenBookData.image.val(e.params.data.volumeInfo.imageLinks.thumbnail);
         $hiddenBookData.description.val(e.params.data.volumeInfo.description);
-
-        //Set the form preview once a book is set.
+        
+        // $("#book-title").val($hiddenBookData.title)
+        // $("#book-author").val($hiddenBookData.author)
+        // $("#book-image").val($hiddenBookData.image)
+        // $("#book-description").val($hiddenBookData.description)
+        $("#book-title").val(e.params.data.volumeInfo.title)
+        $("#book-author").val(e.params.data.volumeInfo.authors.join(', '))
+        $("#book-image").val(e.params.data.volumeInfo.imageLinks.thumbnail)
+        $("#book-description").val(e.params.data.volumeInfo.description)
+        
+        //Set the form preview once a book is selected
         $bookPreview.title.html(e.params.data.volumeInfo.title);
         $bookPreview.thumb.html(
         	$('<img src="'+e.params.data.volumeInfo.imageLinks.thumbnail+'" />'));

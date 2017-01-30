@@ -6,7 +6,7 @@
 	  <%= f.hidden_field :club_id, value: @club.id %>
  		<p>Search for a book</p>
  		<select id="booksearch">
-		  <option value="none" selected="selected">Select a book</option>
+		  <option value="none" selected="selected">Search for a book</option>
 		</select>
 	  
 	  <div id="book-preview" class="row">
@@ -22,13 +22,29 @@
 	  	</div>
 	  </div>
 
-	  <div id="hidden-book-fields">
-	  	<!-- ThIS SHOULD BE DONE WITH ERB -->
-	  	<input type="hidden" id="book-title" value="" />
-	  	<input type="hidden" id="book-author" value="" />
-		<input type="hidden" id="book-image" value="" />
-	  	<input type="hidden" id="book-description" value="" />
-	  </div>
+<!-- 	  <div id="hidden-book-fields"> -->
+
+	  	<%= f.fields_for :book, Book.new do |ff| %>
+  			<div>
+    			<%= ff.label :title %>
+    			<%= ff.text_field :title, :id => "book-title" %>
+  			</div>
+
+  			<div>
+    			<%= ff.label :author %>
+    			<%= ff.text_field :author, :id => "book-author" %>
+  			</div>
+  			<div>
+    			<%= ff.label :image %>
+    			<%= ff.text_field :image, :id => "book-image" %>
+  			</div>
+
+  			<div>
+    			<%= ff.label :description %>
+    			<%= ff.text_field :description, :id => "book-description" %>
+  			</div>
+		<% end %>
+<!-- 	  </div> -->
 
 
 	  <div class="field">
