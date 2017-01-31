@@ -46,6 +46,19 @@
 		<% end %>
 <!-- 	  </div> -->
 
+		  	<%= f.fields_for :choice, Choice.new do |ff| %>
+
+  			<div>
+    			<%= ff.label :selected %>
+    			<%= ff.text_field :selected, value: true %>
+  			</div>
+
+  			<div>
+    			<%= ff.label :category %>
+    			<%= ff.text_field :category, value: "" %>
+  			</div>
+		<% end %>
+
 
 	  <div class="field">
 	    <%= f.label :date, value: "Meeting Date: " %><br />

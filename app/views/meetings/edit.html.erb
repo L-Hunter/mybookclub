@@ -54,4 +54,13 @@
 	<% end %>
 </div>
 
+<!-- grabbed from club new as example of radi button used for boolean
+ -->	<div class="field">  
+		<p>Is this club open to the public?</p>
+	 	<%= f.label :is_public, "Public", :value => true %>
+		<%= f.radio_button :is_public, true %>
+		
+		<%= f.label :is_public, "Private", :value => false %>
+		<%= f.radio_button :is_public, false %>
+	</div>
 
