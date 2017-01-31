@@ -3,7 +3,8 @@ $(document).ready(function(e) {
     var $bookPreview = {
     	'thumb':  $('#book-preview-thumb'),
     	'title':  $('#book-meta-title'),
-    	'author': $('#book-meta-author')
+    	'author': $('#book-meta-author'),
+    	'description': $('#book-meta-description')
     }
     var $hiddenBookData = {
     	'title': $('#book-title'),
@@ -19,7 +20,7 @@ $(document).ready(function(e) {
         }
         return '<span>' + book.volumeInfo.title + '</span> by <span>' + book.volumeInfo.authors.join(', ') + '</span>'
     }
-    //displays renderTitle with cook cover in search options
+    //displays renderTitle with book cover in search options
     function renderBook(book) {
         if (!book || !book.volumeInfo) {
             return $('<span>No results</span>');
@@ -93,6 +94,7 @@ $(document).ready(function(e) {
         $bookPreview.thumb.html(
         	$('<img src="'+e.params.data.volumeInfo.imageLinks.thumbnail+'" />'));
         $bookPreview.author.html(e.params.data.volumeInfo.authors.join(', '));
+        $bookPreview.description.html(e.params.data.volumeInfo.description);
 
     });
 
