@@ -19,4 +19,11 @@ class ChoicesController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def choice_params
+    params.require(:choice).permit(:book_id, :meeting_id, :selected, :category)
+  end
+
 end

@@ -12,39 +12,31 @@
 	  <div id="book-preview" class="row">
 	  	<div class="col-lg-2" id="book-preview-thumb">
 	  	</div>
-	  	<div class="col-lg-4 book-meta">
+	  	<div class="col-lg-10 book-meta">
 	  		<div>
 	  			<span>Title: </span><span id="book-meta-title"></span>
 	  		</div>
 	  		<div>
 	  			<span>Author: </span><span id="book-meta-author"></span>
 	  		</div>
+	  		<div>
+	  			<span>Description: </span><span id="book-meta-description"></span>
+	  		</div>
 	  	</div>
 	  </div>
 
-<!-- 	  <div id="hidden-book-fields"> -->
-
+	  <!-- form to create book -->
 	  	<%= f.fields_for :book, Book.new do |ff| %>
-  			<div>
-    			<%= ff.label :title %>
-    			<%= ff.text_field :title, :id => "book-title" %>
-  			</div>
-
-  			<div>
-    			<%= ff.label :author %>
-    			<%= ff.text_field :author, :id => "book-author" %>
-  			</div>
-  			<div>
-    			<%= ff.label :image %>
-    			<%= ff.text_field :image, :id => "book-image" %>
-  			</div>
-
-  			<div>
-    			<%= ff.label :description %>
-    			<%= ff.text_field :description, :id => "book-description" %>
-  			</div>
+    		<%= ff.hidden_field :title, :id => "book-title" %>
+    		<%= ff.hidden_field :author, :id => "book-author" %>
+    		<%= ff.hidden_field :image, :id => "book-image" %>
+    		<%= ff.hidden_field :description, :id => "book-description" %>
 		<% end %>
-<!-- 	  </div> -->
+		<!-- form to create choice -->
+		<%= f.fields_for :choice, Choice.new do |ff| %>
+    		<%= ff.hidden_field :selected, value: true %>
+    		<%= ff.hidden_field :category, value: "" %>
+		<% end %>
 
 
 	  <div class="field">
