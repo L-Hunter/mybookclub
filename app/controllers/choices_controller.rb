@@ -18,6 +18,10 @@ class ChoicesController < ApplicationController
   end
 
   def destroy
+    @choice = Choice.find(params[:id])
+    @meeting = Meeting.find(@choice.meeting_id)
+    @choice.destroy
+    redirect_to club_meeting_path(@meeting.club, @meeting)
   end
 
   private
