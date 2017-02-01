@@ -22,8 +22,18 @@
 		</div>
 	</div>
 	<div class="col-sm-6 row">
-		<div class="col-sm-2"><%= image_tag @meeting.choice.book.image %></div>
-		<div class="col-sm-10"><h3><%= @meeting.choice.book.title %> by <%= @meeting.choice.book.author %></h3>
-		<p><%= @meeting.choice.book.description %>	</p></div>
+		<% if @meeting.choice %>
+			<div class="col-sm-2">
+				<%= image_tag @meeting.choice.book.image %>		
+			</div>
+			<div class="col-sm-10">
+				<h3><%= @meeting.choice.book.title %> by <%= @meeting.choice.book.author %></h3>
+				<p><%= @meeting.choice.book.description %></p>
+			</div>
+		<% else %>
+			<div class="col-sm-12">
+				There is currently no book selection for this meeting.
+			</div>
+		<% end %>
 	</div>
 </div>
