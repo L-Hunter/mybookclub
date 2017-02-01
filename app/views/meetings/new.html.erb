@@ -3,84 +3,87 @@
 
 <div>
 	<%= form_for [@club, @meeting] do |f| %>
-	  <%= f.hidden_field :club_id, value: @club.id %>
- 		<p>Search for a book</p>
+	    <%= f.hidden_field :club_id, value: @club.id %>
+ 		
+ 		<!-- select book for meeting -->
+ 		<h4>Search for a Book</h4>
  		<select id="booksearch">
-		  <option value="none" selected="selected">Search for a book</option>
+		 	<option value="none" selected="selected">Search for a book</option>
 		</select>
 	  
-	  <div id="book-preview" class="row">
-	  	<div class="col-lg-2" id="book-preview-thumb">
+	  	<div id="book-preview" class="row">
+	  		<div class="col-lg-2" id="book-preview-thumb">
+	  		</div>
+	  		<div class="col-lg-10 book-meta">
+	  			<div>
+	  				<span>Title: </span><span id="book-meta-title"></span>
+	  			</div>
+	  			<div>
+	  				<span>Author: </span><span id="book-meta-author"></span>
+	  			</div>
+	  			<div>
+	  				<span>Description: </span><span id="book-meta-description"></span>
+	  			</div>
+	  		</div>
 	  	</div>
-	  	<div class="col-lg-10 book-meta">
-	  		<div>
-	  			<span>Title: </span><span id="book-meta-title"></span>
-	  		</div>
-	  		<div>
-	  			<span>Author: </span><span id="book-meta-author"></span>
-	  		</div>
-	  		<div>
-	  			<span>Description: </span><span id="book-meta-description"></span>
-	  		</div>
-	  	</div>
-	  </div>
 
-	  <!-- form to create book -->
+	  	<!-- form to create book -->
 	  	<%= f.fields_for :book, Book.new do |ff| %>
     		<%= ff.hidden_field :title, :id => "book-title" %>
     		<%= ff.hidden_field :author, :id => "book-author" %>
     		<%= ff.hidden_field :image, :id => "book-image" %>
     		<%= ff.hidden_field :description, :id => "book-description" %>
 		<% end %>
+		
 		<!-- form to create choice -->
 		<%= f.fields_for :choice, Choice.new do |ff| %>
     		<%= ff.hidden_field :selected, value: true %>
     		<%= ff.hidden_field :category, value: "" %>
 		<% end %>
 
+		<!-- meeting info -->
+	  	<div class="field">
+	    	<%= f.label :date, value: "Meeting Date: " %><br />
+	    	<%= f.text_field :date, autofocus: true %>
+	  	</div>
 
-	  <div class="field">
-	    <%= f.label :date, value: "Meeting Date: " %><br />
-	    <%= f.text_field :date, autofocus: true %>
-	  </div>
+	  	<div class="field">
+	    	<%= f.label :time, value: "Time: " %><br />
+	    	<%= f.text_field :time, autofocus: true %>
+	  	</div>
 
-	  <div class="field">
-	    <%= f.label :time, value: "Time: " %><br />
-	    <%= f.text_field :time, autofocus: true %>
-	  </div>
+	  	<div class="field">
+	    	<%= f.label :host, value: "Host: " %><br>
+	    	<%= f.text_field :host, autofocus: true %>
+	  	</div>
 
-	  <div class="field">
-	    <%= f.label :host, value: "Host: " %><br>
-	    <%= f.text_field :host, autofocus: true %>
-	  </div>
+	  	<div class="field">  
+	    	<%= f.label :street, value: "Street Address: " %><br />
+	    	<%= f.text_field :street, autofocus: true %>
+	  	</div>
 
-	  <div class="field">  
-	    <%= f.label :street, value: "Street Address: " %><br />
-	    <%= f.text_field :street, autofocus: true %>
-	  </div>
+	  	<div class="field">
+	    	<%= f.label :city, value: "City: " %><br>
+	    	<%= f.text_field :city, autofocus: true %>
+	  	</div>
 
-	  <div class="field">
-	    <%= f.label :city, value: "City: " %><br>
-	    <%= f.text_field :city, autofocus: true %>
-	  </div>
+	  	<div class="field">
+	    	<%= f.label :state, value: "State: " %><br>
+	    	<%= f.text_field :state, autofocus: true %>
+	  	</div>
 
-	  <div class="field">
-	    <%= f.label :state, value: "State: " %><br>
-	    <%= f.text_field :state, autofocus: true %>
-	  </div>
+	  	<div class="field">
+	    	<%= f.label :zip, value: "Zipcode: " %><br>
+	    	<%= f.text_field :zip, autofocus: true %>
+	  	</div>
 
-	  <div class="field">
-	    <%= f.label :zip, value: "Zipcode: " %><br>
-	    <%= f.text_field :zip, autofocus: true %>
-	  </div>
+	  	<div class="field">
+	    	<%= f.label :comment, value: "Comments: " %><br>
+	    	<%= f.text_field :comment, autofocus: true %>
+	  	</div>
 
-	  <div class="field">
-	    <%= f.label :comment, value: "Comments: " %><br>
-	    <%= f.text_field :comment, autofocus: true %>
-	  </div>
-
-	  <div class="actions">
-	    <%= f.submit "Schedule Meeting" %>
-	  </div>
+	  	<div class="actions">
+	    	<%= f.submit "Schedule Meeting" %>
+	  	</div>
 	<% end %>
 </div>
