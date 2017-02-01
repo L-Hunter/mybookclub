@@ -31,17 +31,16 @@
 </div>
 
 <!-- list meetings -->
-<h3>Meetings</h3>
-<ul>
-	<% @club.meetings.each do |meeting| %>
-		<li><%= meeting.date %> at <%= meeting.time %>. Meeting id: <%= meeting.id %>. Book Selection: <%= meeting.choice.book.title %>		
-		<%= button_to "View Meeting", club_meeting_path(@club, meeting), :method => "get" %>
-		</li>	
-		
-	<% end %>
-</ul>
+<div>
+	<h3>Meetings</h3>
+	<ul>
+		<% @club.meetings.each do |meeting| %>
+			<li><%= meeting.date %> at <%= meeting.time %>. Meeting id: <%= meeting.id %>. Book Selection: <%= meeting.choice.book.title %> by <%= meeting.choice.book.author %>		
+			<%= button_to "View Meeting", club_meeting_path(@club, meeting), :method => "get" %>
+			</li>	
+		<% end %>
+	</ul>
 
-<!-- Add new Meeting -->
-<%= button_to "Add Meeting", new_club_meeting_path(club_id: @club.id), :method => "get" %>
-<!-- Add new Meeting -->
+	<!-- Add new Meeting -->
+	<%= button_to "Add Meeting", new_club_meeting_path(club_id: @club.id), :method => "get" %>
 </div>
