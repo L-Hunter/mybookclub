@@ -15,6 +15,7 @@ class MeetingsController < ApplicationController
 
   def create
     meeting = Meeting.create(meeting_params.except(:book_attributes, :choice_attributes))
+    # add logic around this to check if book_params :title.length > 0
     book_params = params[:meeting][:book_attributes]
     book = Book.find_by_title(book_params[:title]) || Book.create(title: book_params[:title], author: book_params[:author], image: book_params[:image], description: book_params[:description])
     choice_params = params[:meeting][:choice_attributes]
@@ -33,10 +34,6 @@ class MeetingsController < ApplicationController
   end
 
   def update
-    # original is three lines below
-    # @meeting = Meeting.find(params[:id])
-    # @meeting.update(meeting_params)
-    # redirect_to club_meeting_path
     @meeting = Meeting.find(params[:id])
     @meeting.update(meeting_params.except(:book_attributes, :choice_attributes))
     book_params = params[:meeting][:book_attributes]

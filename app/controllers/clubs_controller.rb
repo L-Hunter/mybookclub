@@ -18,6 +18,7 @@ class ClubsController < ApplicationController
     if @club.save
       redirect_to @club
     else
+      flash[:notice] = "Error saving club!"
       render new_club_path
     end
   end
