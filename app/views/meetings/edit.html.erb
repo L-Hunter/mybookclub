@@ -39,10 +39,10 @@
 	  <%= f.hidden_field :club_id, value: @meeting.club_id %>
 	  <!-- form to create book -->
 	  	<%= f.fields_for :book, Book.new do |ff| %>
-    		<%= ff.hidden_field :title, :id => "book-title" %>
-    		<%= ff.hidden_field :author, :id => "book-author" %>
-    		<%= ff.hidden_field :image, :id => "book-image" %>
-    		<%= ff.hidden_field :description, :id => "book-description" %>
+    		<%= ff.hidden_field :title, value: @meeting.choice.book.title, :id => "book-title" %>
+    		<%= ff.hidden_field :author, value: @meeting.choice.book.author, :id => "book-author" %>
+    		<%= ff.hidden_field :image, value: @meeting.choice.book.image,:id => "book-image" %>
+    		<%= ff.hidden_field :description, value: @meeting.choice.book.description, :id => "book-description" %>
 		<% end %>
 
 	<!-- 	Meeting Info -->
