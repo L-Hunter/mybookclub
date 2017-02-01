@@ -14,10 +14,9 @@ class MeetingsController < ApplicationController
   end
 
   def create
-    meeting = Meeting.create(meeting_params.except(:book_attributes, :choice_attributes))
-    # add logic around this to check if book_params :title.length > 0
     book_params = params[:meeting][:book_attributes]
     book = Book.find_by_title(book_params[:title]) || Book.create(title: book_params[:title], author: book_params[:author], image: book_params[:image], description: book_params[:description])
+    meeting = Meeting.create(meeting_params.except(:book_attributes, :choice_attributes))
     choice_params = params[:meeting][:choice_attributes]
     choice = Choice.create(book_id: book.id, meeting_id: meeting.id, selected: choice_params[:selected], category: choice_params[:category])
     if meeting.save
@@ -30,7 +29,7 @@ class MeetingsController < ApplicationController
   def edit
     @meeting = Meeting.find(params[:id])
     @club = Club.find(params[:club_id])
-    @choice = @meeting.choice.id
+    # @choice = @meeting.choice.id
   end
 
   def update
@@ -38,8 +37,8 @@ class MeetingsController < ApplicationController
     @meeting.update(meeting_params.except(:book_attributes, :choice_attributes))
     book_params = params[:meeting][:book_attributes]
     @book = Book.find_by_title(book_params[:title]) || Book.create(title: book_params[:title], author: book_params[:author], image: book_params[:image], description: book_params[:description])
-
-    @choice = @meeting.choice
+    choice_params = params[:meeting][:choice_attributes]
+    @choice = Choice.find_by_meeting_id(params[:id]) || Choice.create(book_id: @book.id, meeting_id: @meeting.id, selected: choice_params[:selected], category: choice_params[:category])
     @choice.update(book_id: @book.id)
     redirect_to club_meeting_path
   end

@@ -35,7 +35,10 @@
 	<h3>Meetings</h3>
 	<ul>
 		<% @club.meetings.each do |meeting| %>
-			<li><%= meeting.date %> at <%= meeting.time %>. Meeting id: <%= meeting.id %>. Book Selection: <%= meeting.choice.book.title %> by <%= meeting.choice.book.author %>		
+			<li><%= meeting.date %> at <%= meeting.time %>. Meeting id: <%= meeting.id %>. 
+			<% if meeting.choice %>Book Selection: <%= meeting.choice.book.title %> by <%= meeting.choice.book.author %>
+			<% else %>No book has been selected for this meeting.
+			<% end %>	
 			<%= button_to "View Meeting", club_meeting_path(@club, meeting), :method => "get" %>
 			</li>	
 		<% end %>
