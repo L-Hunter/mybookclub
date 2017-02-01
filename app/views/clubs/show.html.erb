@@ -34,7 +34,7 @@
 <h3>Meetings</h3>
 <ul>
 	<% @club.meetings.each do |meeting| %>
-		<li><%= meeting.date %> at <%= meeting.time %>. Meeting id: <%= meeting.id %>		
+		<li><%= meeting.date %> at <%= meeting.time %>. Meeting id: <%= meeting.id %>. Book Selection: <%= meeting.choice.book.title %>		
 		<%= button_to "View Meeting", club_meeting_path(@club, meeting), :method => "get" %>
 		</li>	
 		
