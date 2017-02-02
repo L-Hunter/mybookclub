@@ -1,7 +1,7 @@
+<div class="container bigger-font">
+	<h2 class="text-center title-highlight">Schedule a Book Club Meeting</h2>
 
-<h1>Schedule a Book Club Meeting</h1>
-
-<div>
+	<div>
 	<%= form_for [@club, @meeting] do |f| %>
 	    <%= f.hidden_field :club_id, value: @club.id %>
  		
@@ -12,8 +12,6 @@
 		</select>
 	  
 	  	<div id="book-preview" class="row">
-	  		<div class="col-lg-2" id="book-preview-thumb">
-	  		</div>
 	  		<div class="col-lg-10 book-meta">
 	  			<div>
 	  				<span>Title: </span><span id="book-meta-title"></span>
@@ -24,6 +22,8 @@
 	  			<div>
 	  				<span>Description: </span><span id="book-meta-description"></span>
 	  			</div>
+	  		</div>
+	  		<div class="col-lg-2" id="book-preview-thumb">
 	  		</div>
 	  	</div>
 
@@ -54,36 +54,38 @@
 
 	  	<div class="field">
 	    	<%= f.label :host, value: "Host: " %><br>
-	    	<%= f.text_field :host, autofocus: true %>
+	    	<%= f.text_field :host, :size=>"40", autofocus: true %>
 	  	</div>
 
 	  	<div class="field">  
 	    	<%= f.label :street, value: "Street Address: " %><br />
-	    	<%= f.text_field :street, autofocus: true %>
+	    	<%= f.text_field :street, :size=>"40", autofocus: true %>
 	  	</div>
 
 	  	<div class="field">
 	    	<%= f.label :city, value: "City: " %><br>
-	    	<%= f.text_field :city, autofocus: true %>
+	    	<%= f.text_field :city, :size=>"40", autofocus: true %>
 	  	</div>
 
 	  	<div class="field">
 	    	<%= f.label :state, value: "State: " %><br>
-	    	<%= f.text_field :state, autofocus: true %>
+	    	<%= f.text_field :state, :size=>"40", autofocus: true %>
 	  	</div>
 
 	  	<div class="field">
 	    	<%= f.label :zip, value: "Zipcode: " %><br>
-	    	<%= f.text_field :zip, autofocus: true %>
+	    	<%= f.text_field :zip, :size=>"40", autofocus: true %>
 	  	</div>
 
 	  	<div class="field">
 	    	<%= f.label :comment, value: "Comments: " %><br>
-	    	<%= f.text_field :comment, autofocus: true %>
+	    	<%= f.text_field :comment, :size=>"40", autofocus: true %>
 	  	</div>
 
 	  	<div class="actions">
 	    	<%= f.submit "Schedule Meeting" %>
 	  	</div>
 	<% end %>
+
+	</div>
 </div>

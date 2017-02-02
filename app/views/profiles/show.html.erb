@@ -1,27 +1,30 @@
-<h1>Welcome, <%= @current_user.fname %>!</h1>
+<div class="container bigger-font">
+	<h2 class="text-center title-highlight">Welcome, <%= @current_user.fname %>!</h1>
 
-<div>
-	<h3>Account Info:</h3>
-	<p><%= current_user.fname %> <%= current_user.lname %><br>
-	<%= current_user.email %></p>
+	<div class="row">
+		<div class="col-sm-4">
+			<h3 class="highlight">Account Information</h3>
+			<p><%= current_user.fname %> <%= current_user.lname %><br>
+			<%= current_user.email %></p>
 
-	<% if current_user %>
-		<% if current_user.id == @user.id %>
-			<%= button_to "Edit Account", edit_user_registration_path, :method => "get" %>
-		<% end %>
-	<% end %>
-</div>
+				<% if current_user %>
+				<% if current_user.id == @user.id %>
+				<%= button_to "Edit Account", edit_user_registration_path, :method => "get" %>
+				<% end %>
+			<% end %>
+		</div>
 
-<div>
-	<h3>Your Clubs</h3>
-	<%= button_to "Create New Club", new_club_path, :method => "get" %>
-	
-	<ul>
-	<% @user.clubs.each do |club| %>
-		<li><%= club.club_name %> <%= button_to "View Club", club_path(club.id), :method => "get" %>
-			<%= button_to "Edit Club", edit_club_path(club.id), :method => "get" %>
-		</li>
-	<% end %>
-	</ul>
-	
+		<div class="col-sm-8">
+			<h3 class="highlight">Your Clubs</h3>
+			<%= button_to "Create New Club", new_club_path, :method => "get" %>
+			
+
+			<% @user.clubs.each do |club| %>
+				<div><%= link_to club.club_name, club_path(club.id) %> 
+					<%= club.description %>
+				</div>
+			<% end %>
+
+		</div>
+	</div>
 </div>

@@ -1,42 +1,45 @@
-<h1>Start a New Book Club</h1>
+<div class="container bigger-font">
+	<h2 class="text-center title-highlight">Start a New Book Club</h2>
 
-<div>
-	<%= form_for Club.new do |f| %>
-	  <%= f.hidden_field :user_id, value: current_user.id %>
+	<div>
+		<%= form_for Club.new do |f| %>
+		  <%= f.hidden_field :user_id, value: current_user.id %>
 
-	  <div class="field">
-	    <%= f.label :club_name, value: "Club Name: " %><br />
-	    <%= f.text_field :club_name, autofocus: true %>
-	  </div>
+		  <div class="field">
+		    <%= f.label :club_name, value: "Club Name: " %><br />
+		    <%= f.text_field :club_name, :size=>"40", autofocus: true %>
+		  </div>
 
-	  <div class="field">
-	    <%= f.label :description, value: "Description: " %><br />
-	    <%= f.text_field :description, autofocus: true %>
-	  </div>
+		  <div class="field">
+		    <%= f.label :description, value: "Description: " %><br />
+		    <%= f.text_field :description, :size=>"40", autofocus: true %>
+		  </div>
 
 
-	<div class="field">  
-		<p>Is this club open to the public?</p>
-	 	<%= f.label :is_public, "Public", :value => true %>
-		<%= f.radio_button :is_public, true %>
-		
-		<%= f.label :is_public, "Private", :value => false %>
-		<%= f.radio_button :is_public, false %>
+		  <div class="field">  
+			<p>Is this club open to the public?</p>
+		 	<%= f.label :is_public, "Public", :value => true %>
+			<%= f.radio_button :is_public, true %>
+			
+			<%= f.label :is_public, "Private", :value => false %>
+			<%= f.radio_button :is_public, false %>
+		  </div>
+
+
+		  <div class="field">
+		    <%= f.label :club_pass, value: "Enter a password for your club: " %><br>
+		    <%= f.text_field :club_pass, autofocus: true %>
+		  </div>
+
+	  	  <div class="field">
+	    	<%= f.label "Upload an image" %>
+	    	<%= f.file_field :avatar, autofocus: true %>
+	 	  </div>
+
+		  <div class="actions">
+		    <%= f.submit "Sign up" %>
+		  </div>
+		<% end %>
 	</div>
 
-
-	  <div class="field">
-	    <%= f.label :club_pass, value: "Enter a password for your club: " %><br>
-	    <%= f.text_field :club_pass, autofocus: true %>
-	  </div>
-
-  	  <div class="field">
-    	<%= f.label "Upload an image" %>
-    	<%= f.file_field :avatar, autofocus: true %>
- 	  </div>
-
-	  <div class="actions">
-	    <%= f.submit "Sign up" %>
-	  </div>
-	<% end %>
 </div>
