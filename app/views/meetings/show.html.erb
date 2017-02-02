@@ -3,7 +3,7 @@
 
 	<div class="row">
 		<div class="col-sm-6">
-			<h4 class="highlight">When: <%= @meeting.date %> at <%= @meeting.time %></h4>
+			<h3 class="highlight">When: <%= @meeting.date %> at <%= @meeting.time %></h3>
 			<p><%= @meeting.host %><br>
 			<%= @meeting.street %><br>
 			<%= @meeting.city %>, <%= @meeting.state %> <%= @meeting.zip %></p>
@@ -25,7 +25,7 @@
 						
 				</div>
 				<div class="col-sm-10"> -->
-					<h3><%= @meeting.choice.book.title %> by <%= @meeting.choice.book.author %></h3>
+					<h3 class="highlight"><%= @meeting.choice.book.title %> by <%= @meeting.choice.book.author %></h3>
 					<p><%= image_tag @meeting.choice.book.image, class: "pull-left margin-bottom gap-right" %><%= @meeting.choice.book.description %></p>
 <!-- 				</div> -->
 			<% else %>
