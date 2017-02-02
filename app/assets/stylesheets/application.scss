@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+$title-text-color: #98232E;
+$accent-text-color: #B85925; 
+$light-accent-color: #D6D3D9;
+$content-font-size: 16px;
+
+body {
+ 	padding-top: 50px;
+ }
+
+
+.hero {
+	height: 100vh;
+	background-image: url('openbook.jpg');
+	background-size: cover;
+	position: relative;
+	overflow-y: hidden;
+}
+
+.hero-content {
+	position: absolute;
+  	top: 20%;
+  	text-align: center;
+  	width: 100%;
+  	color: $accent-text-color;
+  	-ms-transform: translate(0,-50%); /* IE 9 */;
+    -webkit-transform: translate(0,-50%); /* Safari */
+    transform: translate(0,-50%);  
+
+}
+
+.hero-button {
+	padding: 10px;
+	font-size: 24px;
+	color: $accent-text-color;
+	background-color: #FFFFFF;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+.navbar-default {
+	background-color: $light-accent-color;
+}
+
+.navbar-brand a {
+	color: $title-text-color;
+}
+
+.all-books-display {
+	margin: 20px;
+	padding-top: 10px;
+	font-size: $content-font-size;
+}
+
+.all-clubs-display {
+	margin-top: 20px;
+	font-size: $content-font-size;
+}
+
+.highlight {
+	color: $accent-text-color;
+	font-weight: bold;
+}
+
+.title-highlight {
+	color: $title-text-color;
+	font-weight: bold;
+}
+
+.bigger-font {
+	font-size: $content-font-size;
+}
+
+.gap-right {
+	margin-right: 25px;
+}
