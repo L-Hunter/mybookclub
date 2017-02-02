@@ -1,49 +1,75 @@
-<h1><%= @club.club_name %></h1>
+<div class="container bigger-font">
+	<h2 class="text-center title-highlight"><%= @club.club_name %></h2>
 
-<!-- Club Info -->
-<div>
-	<h3>Club Information</h3>
-	<p>
-		Club Name: <%= @club.club_name %><br>
-		Description: <%= @club.description %><br>
-		Is Public?: <%= @club.is_public %><br>
-		Club Password: <%= @club.club_pass %><br>
-		Club Coordinator: <%= @club.user_id %>
-		<%= button_to "Edit Club", edit_club_path, :method => "get" %>
-	</p>
+	<div class="row">
+		<div class="col-sm-6">
+			<!-- Club Info -->
+			<div>
+				<h3 class="highlight">Club Information</h3>
+				<div class="row">
+					<div class="col-sm-2">
+				<!-- avatar -->
+				<div style="width:100px;">
+					<%= image_tag @club.avatar.url %>	
+				</div>
+				</div>
+				<div class="col-sm-10">
+				<p>
+					<%= @club.club_name %><br>
+					<%= @club.description %><br>
+					<% if @club.is_public == true %>
+						This club is public.<br>
+					<% else %>
+						This club is private.<br>
+					<% end %>
+				</p>
+				</div>
+					<!-- Club Coordinator Info -->
+					<% @users.each do |user| %>
+						<% if user.id == @club.user_id %>
+							<p>Club Coordinator: <%= user.fname %> <%= user.lname %><br>
+							<%= user.email %></p>
+						<% end %>
+					<% end %>
+					
+					<p>Club Password: <%= @club.club_pass %>
+					<%= button_to "Edit Club", edit_club_path, :method => "get" %>
+					</p>
+				</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<!-- Meetings Info-->
+			<div>
+				<h3 class="highlight">Meetings</h3>
+					<!-- Add new Meeting -->
+					<%= button_to "Add Meeting", new_club_meeting_path(club_id: @club.id), :method => "get" %>
+					<% @club.meetings.each do |meeting| %>
+						<div class="row all-clubs-display">
+							<div class="col-sm-3">
+								<% if meeting.choice %>
+									<%= image_tag meeting.book.image %>
+								<% end %>
+							</div>
+							<div class="col-sm-9">
+								<p><%= meeting.date %> at <%= meeting.time %><br> 
+								<% if meeting.choice %>Book Selection: <%= meeting.choice.book.title %> by <%= meeting.choice.book.author %><br>
+								<% else %>No book has been selected for this meeting.<br>
+								<% end %>	
+								<%= link_to "Meeting Details", club_meeting_path(@club, meeting), :method => "get" %>
+								</p>
+							</div>	
+
+
+						</div>
+					<% end %>
+
+
+			</div>
+		</div>
+
+	</div>
 </div>
 
-<!-- Club Coordinator Info -->
-<div>
-	<h3>Club Coordinator</h3>
-	<% @users.each do |user| %>
-		<% if user.id == @club.user_id %>
-			<p>Name: <%= user.fname %> <%= user.lname %><br>
-			email: <%= user.email %>
-			id: <%= user.id %></p>
-		<% end %>
-	<% end %>
-</div>
-
-<!-- avatar -->
-<div style="width:100px;">
-	<%= image_tag @club.avatar.url %>	
-</div>
-
-<!-- list meetings -->
-<div>
-	<h3>Meetings</h3>
-	<ul>
-		<% @club.meetings.each do |meeting| %>
-			<li><%= meeting.date %> at <%= meeting.time %>. Meeting id: <%= meeting.id %>. 
-			<% if meeting.choice %>Book Selection: <%= meeting.choice.book.title %> by <%= meeting.choice.book.author %>
-			<% else %>No book has been selected for this meeting.
-			<% end %>	
-			<%= button_to "View Meeting", club_meeting_path(@club, meeting), :method => "get" %>
-			</li>	
-		<% end %>
-	</ul>
-
-	<!-- Add new Meeting -->
-	<%= button_to "Add Meeting", new_club_meeting_path(club_id: @club.id), :method => "get" %>
-</div>

@@ -16,10 +16,12 @@
 $title-text-color: #98232E;
 $accent-text-color: #B85925; 
 $light-accent-color: #D6D3D9;
+$content-font-size: 16px;
 
- body {
+body {
  	padding-top: 50px;
  }
+
 
 .hero {
 	height: 100vh;
@@ -56,4 +58,33 @@ $light-accent-color: #D6D3D9;
 
 .navbar-brand a {
 	color: $title-text-color;
+}
+
+.all-books-display {
+	margin: 20px;
+	padding-top: 10px;
+	font-size: $content-font-size;
+}
+
+.all-clubs-display {
+	margin-top: 20px;
+	font-size: $content-font-size;
+}
+
+.highlight {
+	color: $accent-text-color;
+	font-weight: bold;
+}
+
+.title-highlight {
+	color: $title-text-color;
+	font-weight: bold;
+}
+
+.bigger-font {
+	font-size: $content-font-size;
+}
+
+.gap-right {
+	margin-right: 25px;
 }
