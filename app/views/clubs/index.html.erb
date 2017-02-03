@@ -1,7 +1,10 @@
 
 <div class="container">
 	<h2 class="title-highlight">Find Book Clubs</h2>
-	Search Box???
+		<%= form_tag(clubs_path, :method => "get", id: "search-form") do %>
+		<%= text_field_tag :search, params[:search], placeholder: "Search Meetings" %>
+  		<%= submit_tag "Search", :name => nil, class: 'search_button' %>
+		<% end %>
 
 	<h3 class="title-highlight">Public Book Clubs</h3>
 	<div class="row">

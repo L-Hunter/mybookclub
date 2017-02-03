@@ -17,4 +17,7 @@ class Meeting < ApplicationRecord
 	validates :zip, presence: true
 	# validates :comment, presence: true
 	
+	def self.search(search)
+      where("date LIKE ? OR time LIKE ? OR host LIKE ? OR street LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ? ", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
+	end
 end
