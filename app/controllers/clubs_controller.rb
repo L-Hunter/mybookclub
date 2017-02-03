@@ -1,7 +1,12 @@
 class ClubsController < ApplicationController
   def index
-    @clubs = Club.all
+    # @clubs = Club.all
     @users = User.all
+    if params[:search]
+      @clubs = Club.search(params[:search]).order("created_at DESC")
+    else
+      @clubs = Club.all.order("created_at DESC")
+    end
   end
 
   def show

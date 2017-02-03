@@ -9,5 +9,8 @@ class Club < ApplicationRecord
 	validates_inclusion_of :is_public, :in => [true, false]
 	validates :club_pass, presence: true
     validates :description, presence: true
-
+	
+	def self.search(search)
+      where(" UPPER(club_name) LIKE ? OR UPPER(description) LIKE ? ", "%#{search.upcase}%", "%#{search.upcase}%") 
+	end
 end
