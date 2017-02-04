@@ -2,7 +2,7 @@
 <div class="container">
 	<h2 class="title-highlight">Find Book Clubs</h2>
 		<%= form_tag(clubs_path, :method => "get", id: "search-form") do %>
-		<%= text_field_tag :search, params[:search], placeholder: "Search Meetings" %>
+		<%= text_field_tag :search, params[:search], placeholder: "Search Clubs" %>
   		<%= submit_tag "Search", :name => nil, class: 'search_button' %>
 		<% end %>
 
