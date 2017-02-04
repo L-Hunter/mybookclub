@@ -1,20 +1,43 @@
-<div class="container">
-	<h2 class="text-center title-highlight">Current Reads</h2>
-	<h4 class="text-center title-highlight">See what other clubs are reading.</h4>
+<div class="container bigger-font">
 
-	<div>
-		<% @books.each do |book| %>
-			<div class="row all-books-display">
-				<div class="col-sm-2"></div>
-				<div class="col-sm-2">
-					<%= image_tag book.image %>
-				</div>
-				<div class="col-sm-6">	
-					<span class="highlight"><%= book.title %> by <%= book.author %></span><br>
-					<%= book.description %>
-				</div>
-				<div class="col-sm-2"></div>
-			</div>
-		<% end %>
+	<div class="row">
+		<div class="col-sm-8">	
+			<h2 class="text-center title-highlight">Current Reads</h2>
+			<h4 class="text-center title-highlight">See what other clubs are reading.</h4>
+		</div>
+		<div class="col-sm-4">
+			<h2 class="text-center title-highlight">Search for a Book</h2>
+			<h4 class="text-center title-highlight">Find your next great read.</h4>
+		</div>
 	</div>
-</div>
+	<div class="row">
+		<div class="col-sm-8">	
+			<div>
+				<% @books.each do |book| %>
+					<div class="all-books-display row">
+						<h4 class="highlight"><%= book.title %> by <%= book.author %></h4>
+						<p><%= image_tag book.image, class: "pull-left margin-bottom gap-right" %><%= book.description %></p>
+					</div>
+				<% end %>
+			</div>
+		</div>
+
+		<!-- book search -->
+ 		<div class="col-sm-4">
+	 		<div>
+	 			<select id="booksearch">
+			 		<option value="none" selected="selected">Search for a book</option>
+				</select>
+	  		</div>
+	  		<div id="book-preview" class="row">
+	  			<div class="book-meta">
+	  				<div>
+	  					<h4 class="highlight"> <span id="book-meta-title"></span> <span id="book-meta-author"></span></h4>
+	  					<p><span id="book-preview-thumb" class="pull-left margin-bottom gap-right"></span>
+	  					<span id="book-meta-description"></span></p>
+	  				</div>
+	  			</div>
+	  		</div>
+	  	</div>
+	</div>
+</div> 
