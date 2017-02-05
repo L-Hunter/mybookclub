@@ -98,5 +98,13 @@ $(document).ready(function(e) {
 
     });
 
+// jQuery
+$(".flatpickr").flatpickr({
+    inline: true,
+    enableTime: true,
+    altInput: true,
+    altFormat: "F j, Y h:i K"
+});
 
 });
+
