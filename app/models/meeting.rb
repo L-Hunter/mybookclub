@@ -9,7 +9,7 @@ class Meeting < ApplicationRecord
 	accepts_nested_attributes_for :choice
 
 	validates :date, presence: true
-	validates :time, presence: true
+	# validates :time, presence: true
 	# validates :host, presence: true
 	validates :street, presence: true
 	validates :city, presence: true

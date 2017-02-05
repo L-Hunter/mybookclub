@@ -6,7 +6,7 @@
 	    <%= f.hidden_field :club_id, value: @club.id %>
  		
  		<!-- select book for meeting -->
- 		<h4>Search for a Book</h4>
+ 		<h4 class="highlight">Search for a Book</h4>
  		<select id="booksearch">
 		 	<option value="none" selected="selected">Search for a book</option>
 		</select>
@@ -42,49 +42,50 @@
 		<% end %>
 
 		<!-- meeting info -->
-	  	<div class="field">
-	    	<%= f.label :date, value: "Meeting Date: " %><br />
-	    	<%= f.text_field :date, autofocus: true %>
-	  	</div>
+	  	<div class="row">
+	  	
+		  	<div class="col-sm-6">
+			  	<div class="field">
+			    	<%= f.label :date, value: "Meeting Date: " %><br />
+			    	<%= f.text_field :date, autofocus: true, class: "flatpickr" %>
+			  	</div>
+		  	</div>
+		  	<div class="col-sm-6">
+			  	<div class="field">
+			    	<%= f.label :host, value: "Host: " %><br>
+			    	<%= f.text_field :host, :size=>"40", autofocus: true %>
+			  	</div>
 
-	  	<div class="field">
-	    	<%= f.label :time, value: "Time: " %><br />
-	    	<%= f.text_field :time, autofocus: true %>
-	  	</div>
+			  	<div class="field">  
+			    	<%= f.label :street, value: "Street Address: " %><br />
+			    	<%= f.text_field :street, :size=>"40", autofocus: true %>
+			  	</div>
 
-	  	<div class="field">
-	    	<%= f.label :host, value: "Host: " %><br>
-	    	<%= f.text_field :host, :size=>"40", autofocus: true %>
-	  	</div>
+			  	<div class="field">
+			    	<%= f.label :city, value: "City: " %><br>
+			    	<%= f.text_field :city, :size=>"40", autofocus: true %>
+			  	</div>
 
-	  	<div class="field">  
-	    	<%= f.label :street, value: "Street Address: " %><br />
-	    	<%= f.text_field :street, :size=>"40", autofocus: true %>
-	  	</div>
+			  	<div class="field">
+			    	<%= f.label :state, value: "State: " %><br>
+			    	<%= f.text_field :state, :size=>"40", autofocus: true %>
+			  	</div>
 
-	  	<div class="field">
-	    	<%= f.label :city, value: "City: " %><br>
-	    	<%= f.text_field :city, :size=>"40", autofocus: true %>
-	  	</div>
+			  	<div class="field">
+			    	<%= f.label :zip, value: "Zipcode: " %><br>
+			    	<%= f.text_field :zip, :size=>"40", autofocus: true %>
+			  	</div>
 
-	  	<div class="field">
-	    	<%= f.label :state, value: "State: " %><br>
-	    	<%= f.text_field :state, :size=>"40", autofocus: true %>
-	  	</div>
+			  	<div class="field">
+			    	<%= f.label :comment, value: "Comments: " %><br>
+			    	<%= f.text_field :comment, :size=>"40", autofocus: true %>
+			  	</div>
 
-	  	<div class="field">
-	    	<%= f.label :zip, value: "Zipcode: " %><br>
-	    	<%= f.text_field :zip, :size=>"40", autofocus: true %>
-	  	</div>
-
-	  	<div class="field">
-	    	<%= f.label :comment, value: "Comments: " %><br>
-	    	<%= f.text_field :comment, :size=>"40", autofocus: true %>
-	  	</div>
-
-	  	<div class="actions">
-	    	<%= f.submit "Schedule Meeting" %>
-	  	</div>
+			  	<div class="actions">
+			    	<%= f.submit "Schedule Meeting" %>
+			  	</div>
+		  	</div>
+	  	</div> <!-- close row -->
 	<% end %>
 
 	</div>
