@@ -1,6 +1,8 @@
 <div class="container bigger-font">
 <h2 class="text-center title-highlight">Edit Your Meeting</h2>
-
+      <% flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, class: name, class: "highlight" %>
+      <% end -%>
 <div>
  	<!-- CURRENT BOOK CHOICE -->
 	<% if @meeting.choice %>

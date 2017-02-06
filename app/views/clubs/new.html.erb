@@ -1,8 +1,14 @@
 <div class="container bigger-font">
 	<h2 class="text-center title-highlight">Start a New Book Club</h2>
-
+      <% flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, class: name, class: "highlight" %>
+      <% end -%>
+      
 	<div>
 		<%= form_for Club.new do |f| %>
+
+
+
 		  <%= f.hidden_field :user_id, value: current_user.id %>
 
 		  <div class="field">

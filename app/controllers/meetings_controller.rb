@@ -20,8 +20,10 @@ class MeetingsController < ApplicationController
     choice_params = params[:meeting][:choice_attributes]
     choice = Choice.create(book_id: book.id, meeting_id: meeting.id, selected: choice_params[:selected], category: choice_params[:category])
     if meeting.save
+      flash[:notice] = ""
       redirect_to club_meeting_path(meeting.club_id, meeting)
     else
+      flash[:alert] = "Error saving meeting! Please complete all form fields."
       redirect_to new_club_meeting_path
     end
   end
@@ -39,8 +41,13 @@ class MeetingsController < ApplicationController
     @book = Book.find_by_title(book_params[:title]) || Book.create(title: book_params[:title], author: book_params[:author], image: book_params[:image], description: book_params[:description])
     choice_params = params[:meeting][:choice_attributes]
     @choice = Choice.find_by_meeting_id(params[:id]) || Choice.create(book_id: @book.id, meeting_id: @meeting.id, selected: choice_params[:selected], category: choice_params[:category])
-    @choice.update(book_id: @book.id)
-    redirect_to club_meeting_path
+    if @choice.update(book_id: @book.id)
+      flash[:notice] = ""
+      redirect_to club_meeting_path
+    else
+      flash[:alert] = "Error updating meeting! Please complete all form fields."
+      redirect_to edit_club_meeting_path
+    end
   end
 
   def destroy

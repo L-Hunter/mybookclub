@@ -21,9 +21,10 @@ class ClubsController < ApplicationController
   def create
     @club = Club.create(club_params)
     if @club.save
+      flash[:notice] = ""
       redirect_to @club
     else
-      flash[:notice] = "Error saving club!"
+      flash[:alert] = "Error saving club! Please complete all form fields."
       render new_club_path
     end
   end
@@ -34,8 +35,13 @@ class ClubsController < ApplicationController
 
   def update
     @club = Club.find(params[:id])
-    @club.update(club_params)
-    redirect_to club_path
+    if @club.update(club_params)
+      flash[:notice] = ""
+      redirect_to club_path
+    else
+      flash[:alert] = "Error updating club! Please complete all form fields."
+      redirect_to edit_club_path
+    end
   end
 
   def destroy
