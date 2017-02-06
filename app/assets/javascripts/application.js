@@ -15,3 +15,27 @@
 //= require libraries/select2
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function () { 
+
+var latitude = document.getElementsByClassName('latitude')[0].innerHTML;
+var longitude = document.getElementsByClassName('longitude')[0].innerHTML;
+var latitude = parseFloat(latitude)
+var longitude = parseFloat(longitude)
+
+
+window.initMap = function () {
+        var uluru = {lat: latitude, lng: longitude };
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+
+
+
+})

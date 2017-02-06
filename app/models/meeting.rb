@@ -20,4 +20,11 @@ class Meeting < ApplicationRecord
 	def self.search(search)
       where("date LIKE ? OR time LIKE ? OR host LIKE ? OR street LIKE ? OR city LIKE ? OR state LIKE ? OR zip LIKE ? ", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
 	end
+
+	def full_street_address
+	  [street, city, state, zip].compact.join(', ')
+	end
+ 
+	geocoded_by :full_street_address
+	after_validation :geocode
 end
