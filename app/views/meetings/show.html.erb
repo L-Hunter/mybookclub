@@ -23,6 +23,8 @@
 				<% end %>
 			<% end %>
 
+		<div id="map"></div>
+
 		</div>
 		<div class="col-sm-6">
 			<% if @meeting.choice %>
@@ -34,3 +36,11 @@
 		</div>
 	</div>
 </div>
+
+<p class="latitude"><%= @meeting.latitude %></p>
+<p class="longitude"><%= @meeting.longitude %></p>
+
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=<%= GOOGLE_MAPS_API_KEY %>&callback=initMap">
+</script>
