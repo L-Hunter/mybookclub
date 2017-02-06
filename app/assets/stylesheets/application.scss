@@ -17,9 +17,19 @@ $title-text-color: #98232E;
 $accent-text-color: #B85925; 
 $light-accent-color: #D6D3D9;
 $content-font-size: 16px;
+$font-color: #000000;
 
 body {
  	padding-top: 50px;
+ 	color: $font-color;
+
+ 	a {
+ 		color: $font-color;
+ 	}
+
+ 	a:hover {
+ 		color: $font-color;
+ 	}
  }
 
 .hero {
@@ -102,6 +112,14 @@ body {
 	display: none;
 }
 
+.club-logo {
+	width: 100px;
+	height: auto;
+	padding: 10px;
+}
 
+.clubs {
+	height: 250px;
+}
 
 

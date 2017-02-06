@@ -20,9 +20,11 @@
 			
 
 			<% @user.clubs.each do |club| %>
-				<div><%= link_to club.club_name, club_path(club.id) %> 
+			  <ul>
+				<li><%= link_to club.club_name, club_path(club.id), class: "title-highlight" %> 
 					<%= club.description %>
-				</div>
+				</li>
+			  </ul>
 			<% end %>
 
 		</div>
