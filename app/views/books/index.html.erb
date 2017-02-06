@@ -1,30 +1,15 @@
 <div class="container bigger-font">
 
 	<div class="row">
-		<div class="col-sm-8">	
+		<div class="col-sm-12">	
 			<h2 class="text-center title-highlight">Current Reads</h2>
 			<h4 class="text-center title-highlight">See what other clubs are reading.</h4>
 		</div>
-		<div class="col-sm-4">
-			<h2 class="text-center title-highlight">Search for a Book</h2>
-			<h4 class="text-center title-highlight">Find your next great read.</h4>
-		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-8">	
-			<div>
-				<% @books.each do |book| %>
-					<div class="all-books-display row">
-						<h4 class="highlight"><%= book.title %> by <%= book.author %></h4>
-						<p><%= image_tag book.image, class: "pull-left margin-bottom gap-right" %><%= book.description %></p>
-					</div>
-				<% end %>
-			</div>
-		</div>
-
-		<!-- book search -->
- 		<div class="col-sm-4">
-	 		<div>
+		<h4 class="text-left highlight">Find your next great read.</h4>
+		<div class="col-sm-12">	
+			 <div>
 	 			<select id="booksearch">
 			 		<option value="none" selected="selected">Search for a book</option>
 				</select>
@@ -38,6 +23,15 @@
 	  				</div>
 	  			</div>
 	  		</div>
-	  	</div>
+			<div>
+				<% @books.last(15).each do |book| %>
+					<div class="all-books-display row">
+						<h4 class="highlight"><%= book.title %> by <%= book.author %></h4>
+						<p><%= image_tag book.image, class: "pull-left margin-bottom gap-right" %><%= book.description %></p>
+					</div>
+				<% end %>
+			</div>
+		</div>
 	</div>
-</div> 
+</div>
+

@@ -10,13 +10,13 @@
 	<div class="row">
 		<% @clubs.each do |club| %>
 			<% if club.is_public == true %>
-			<div class="col-sm-4  all-clubs-display">
+			<div class="col-sm-4  all-clubs-display clubs">
 				<div class="row">
 					<div class="col-sm-3">
-						<%= image_tag club.avatar.url %>
+						<%= image_tag club.avatar.url, class: "club-logo" %>
 					</div>
 					<div class="col-sm-9">
-						<%= link_to club.club_name, club_path(club.id) %><br>
+						<%= link_to club.club_name, club_path(club.id), class: "highlight" %><br>
 						<%= club.description %><br>
 						<% @users.each do |user| %>
 							<% if user.id == club.user_id %>
