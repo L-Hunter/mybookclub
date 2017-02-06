@@ -60,7 +60,7 @@
 							<% end %>
 						</div>
 						<div class="col-sm-9">
-							<p><%= meeting.date %><br> 
+							<p><%= meeting.datetime.strftime("%B %d, %Y at %I:%M%p") %><br> 
 							<% if meeting.choice %>Book Selection: <%= meeting.choice.book.title %> by <%= meeting.choice.book.author %><br>
 							<% else %>No book has been selected for this meeting.<br>
 							<% end %>	
