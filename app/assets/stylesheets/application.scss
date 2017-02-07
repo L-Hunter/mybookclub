@@ -16,12 +16,18 @@
 $title-text-color: #98232E;
 $accent-text-color: #B85925; 
 $light-accent-color: #D6D3D9;
-$content-font-size: 16px;
+$content-font-size: 18px;
 $font-color: #000000;
+@import url('https://fonts.googleapis.com/css?family=Lato|PT+Serif');
+
+html {
+	font-size: $content-font-size
+}
 
 body {
  	padding-top: 50px;
  	color: $font-color;
+ 	font-family: 'PT+Serif', serif;
 
  	a {
  		color: $font-color;
@@ -30,6 +36,11 @@ body {
  	a:hover {
  		color: $font-color;
  	}
+
+ 	h1, h2, h3, h4 {
+ 		font-family: 'Lato', sans-serif;
+ 	}
+
  }
 
 .hero {
@@ -122,4 +133,11 @@ body {
 	height: 250px;
 }
 
+.container {
+	font-family: 'PT+Serif', serif;
+}
+
+.container-fluid {
+	font-family: 'PT+Serif', serif;
+}
 
