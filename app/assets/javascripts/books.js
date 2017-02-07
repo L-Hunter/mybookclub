@@ -16,14 +16,14 @@ $(document).ready(function(e) {
     //info displayed in search box
     function renderTitle(book) {
         if (!book || !book.volumeInfo) {
-            return '<span>No results</span>';
+            return '<span>Sorry, no results found.</span>';
         }
         return '<span>' + book.volumeInfo.title + '</span> by <span>' + book.volumeInfo.authors.join(', ') + '</span>'
     }
     //displays renderTitle with book cover in search options
     function renderBook(book) {
         if (!book || !book.volumeInfo) {
-            return $('<span>No results</span>');
+            return $('<span>Sorry, no results found.</span>');
         }
         var $result = $(
             '<div class="row">' + '<div class="col-lg-4"><img class="thumbnail" src="' + book.volumeInfo.imageLinks.thumbnail + '"/></div>' + '<div class="col-lg-8">' + renderTitle(book) + '</div>'

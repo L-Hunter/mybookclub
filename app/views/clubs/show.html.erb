@@ -33,9 +33,7 @@
 					
 						<% if current_user %>
 							<% if current_user.id == @club.user_id %>
-								<p>Club Password: <%= @club.club_pass %>
-								<%= button_to "Edit Club", edit_club_path, :method => "get" %>
-								</p>
+								<%= button_to "Edit Club", edit_club_path, :method => "get", class: "btn btn-default btn-lg" %>
 							<% end %>
 						<% end %>
 					</div>
@@ -49,7 +47,7 @@
 				<!-- Add new Meeting -->
 				<% if current_user %>
 					<% if current_user.id == @club.user_id %>
-						<%= button_to "Add Meeting", new_club_meeting_path(club_id: @club.id), :method => "get" %>
+						<%= button_to "Add Meeting", new_club_meeting_path(club_id: @club.id), :method => "get", class: "btn btn-default btn-lg" %>
 					<% end %>
 				<% end %>
 				<% @club.meetings.each do |meeting| %>
