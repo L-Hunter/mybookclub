@@ -71,44 +71,44 @@
 	  	<div class="row">
 	  	
 		  	<div class="col-sm-6">
-			  	<div class="field">
+			  	<div class="form-group">
 			    	<%= f.label :datetime, value: "Meeting Date: " %><br />
 			    	<%= f.text_field :datetime, autofocus: true, class: "flatpickr" %>
 			  	</div>
 		  	</div>
 		  	<div class="col-sm-6">
-			  	<div class="field">
+			  	<div class="form-group">
 			    	<%= f.label :host, value: "Host: " %><br>
-			    	<%= f.text_field :host, :size=>"40", autofocus: true %>
+			    	<%= f.text_field :host, autofocus: true, class: "form-control" %>
 			  	</div>
 
-			  	<div class="field">  
+			  	<div class="form-group">  
 			    	<%= f.label :street, value: "Street Address: " %><br />
-			    	<%= f.text_field :street, :size=>"40", autofocus: true %>
+			    	<%= f.text_field :street, autofocus: true, class: "form-control" %>
 			  	</div>
 
-			  	<div class="field">
+			  	<div class="form-group">
 			    	<%= f.label :city, value: "City: " %><br>
-			    	<%= f.text_field :city, :size=>"40", autofocus: true %>
+			    	<%= f.text_field :city, autofocus: true, class: "form-control" %>
 			  	</div>
 
-			  	<div class="field">
+			  	<div class="form-group">
 			    	<%= f.label :state, value: "State: " %><br>
-			    	<%= f.text_field :state, :size=>"40", autofocus: true %>
+			    	<%= f.text_field :state, autofocus: true, class: "form-control" %>
 			  	</div>
 
-			  	<div class="field">
+			  	<div class="form-group">
 			    	<%= f.label :zip, value: "Zipcode: " %><br>
-			    	<%= f.text_field :zip, :size=>"40", autofocus: true %>
+			    	<%= f.text_field :zip, autofocus: true, class: "form-control" %>
 			  	</div>
 
-			  	<div class="field">
+			  	<div class="form-group">
 			    	<%= f.label :comment, value: "Comments: " %><br>
-			    	<%= f.text_field :comment, :size=>"40", autofocus: true %>
+			    	<%= f.text_field :comment, autofocus: true, class: "form-control" %>
 			  	</div>
 
 			  	<div class="actions">
-			    	<%= f.submit "Update Meeting" %>
+			    	<%= f.submit "Update Meeting", class: "btn" %>
 			  	</div>
 		  	</div>
 	  	</div> 

@@ -60,11 +60,11 @@
 							<% end %>
 						</div>
 						<div class="col-sm-9">
-							<p><%= meeting.datetime.strftime("%B %d, %Y at %I:%M%p") %><br> 
+							<p><span  class="highlight"><%= meeting.datetime.strftime("%B %d, %Y at %I:%M%p") %></span><br> 
 							<% if meeting.choice %>Book Selection: <%= meeting.choice.book.title %> by <%= meeting.choice.book.author %><br>
 							<% else %>No book has been selected for this meeting.<br>
 							<% end %>	
-							<%= link_to "Meeting Details", club_meeting_path(@club, meeting), :method => "get" %>
+							<%= link_to "View Meeting Details", club_meeting_path(@club, meeting), :method => "get" %>
 							</p>
 						</div>	
 					</div>

@@ -7,43 +7,41 @@
 	<div>
 		<%= form_for Club.new do |f| %>
 
-
-
 		  <%= f.hidden_field :user_id, value: current_user.id %>
 
-		  <div class="field">
+		  <div class="form-group">
 		    <%= f.label :club_name, value: "Club Name: " %><br />
-		    <%= f.text_field :club_name, :size=>"40", autofocus: true %>
+		    <%= f.text_field :club_name, autofocus: true, class: "form-control" %>
 		  </div>
 
-		  <div class="field">
+		  <div class="form-group">
 		    <%= f.label :description, value: "Description: " %><br />
-		    <%= f.text_field :description, :size=>"40", autofocus: true %>
+		    <%= f.text_field :description, autofocus: true, class: "form-control" %>
 		  </div>
 
 
-		  <div class="field">  
+		  <div class="form-group">  
 			<p>Is this club open to the public?</p>
 		 	<%= f.label :is_public, "Public", :value => true %>
-			<%= f.radio_button :is_public, true %>
+			<%= f.radio_button :is_public, true, class: "form-check-input" %>
 			
 			<%= f.label :is_public, "Private", :value => false %>
-			<%= f.radio_button :is_public, false %>
+			<%= f.radio_button :is_public, false, class: "form-check-input" %>
 		  </div>
 
 
-		  <div class="field">
+		  <div class="form-group">
 		    <%= f.label :club_pass, value: "Enter a password for your club: " %><br>
-		    <%= f.text_field :club_pass, autofocus: true %>
+		    <%= f.text_field :club_pass, autofocus: true, class: "form-control" %>
 		  </div>
 
-	  	  <div class="field">
+	  	  <div class="form-group">
 	    	<%= f.label "Upload an image" %>
-	    	<%= f.file_field :avatar, autofocus: true %>
+	    	<%= f.file_field :avatar, autofocus: true, class: "form-control-file" %>
 	 	  </div>
 
 		  <div class="actions">
-		    <%= f.submit "Create Club" %>
+		    <%= f.submit "Create Club", class: "btn" %>
 		  </div>
 		<% end %>
 	</div>
