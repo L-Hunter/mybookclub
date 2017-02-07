@@ -9,14 +9,14 @@
 
 				<% if current_user %>
 				<% if current_user.id == @user.id %>
-				<%= button_to "Edit Account", edit_user_registration_path, :method => "get" %>
+				<%= button_to "Edit Account", edit_user_registration_path, :method => "get", class: "btn btn-default btn-lg" %>
 				<% end %>
 			<% end %>
 		</div>
 
 		<div class="col-sm-8">
 			<h3 class="highlight">Your Clubs</h3>
-			<%= button_to "Create New Club", new_club_path, :method => "get" %>
+			<%= button_to "Create New Club", new_club_path, :method => "get", class: "btn btn-default btn-lg" %>
 			
 
 			<% @user.clubs.each do |club| %>

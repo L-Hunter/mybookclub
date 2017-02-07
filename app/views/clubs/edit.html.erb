@@ -10,12 +10,12 @@
 
 	  <div class="form-group">
 	    <%= f.label :club_name, value: "Club Name: " %><br />
-	    <%= f.text_field :club_name, autofocus: true, class: "form-control" %>
+	    <%= f.text_field :club_name, autofocus: true, class: "form-control input-lg" %>
 	  </div>
 
 	  <div class="form-group">
 	    <%= f.label :description, value: "Description: " %><br />
-	    <%= f.text_field :description, autofocus: true, class: "form-control" %>
+	    <%= f.text_field :description, autofocus: true, class: "form-control input-lg" %>
 	  </div>
 
 	  <div class="form-group">  
@@ -28,7 +28,7 @@
 
 	  <div class="form-group">
 	    <%= f.label :club_pass, value: "Enter a password for your club: " %>
-	        <%= f.text_field :club_pass, autofocus: true, class: "form-control" %>
+	        <%= f.text_field :club_pass, autofocus: true, class: "form-control input-lg" %>
 	  </div>
 
   	  <div class="form-group">
@@ -37,7 +37,7 @@
  	  </div>
 
 	  <div class="actions">
-	    <%= f.submit "Update", class: "btn" %>
+	    <%= f.submit "Update", class: "btn btn-default btn-lg" %>
 	  </div>
 	<% end %>
 </div>
