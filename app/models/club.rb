@@ -7,7 +7,8 @@ class Club < ApplicationRecord
  	def s3_credentials
 	    {:bucket => ENV['S3_BUCKET_NAME'],
 	    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-	    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']}
+	    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
+		region: 'us-west-2'}
 	end
 
 	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
