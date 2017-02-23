@@ -2,7 +2,7 @@ class Club < ApplicationRecord
 	
 	has_many :meetings
 
-	has_attached_file :avatar, :storage => :s3, :s3_credentials => Proc.new{|a| a.instance.s3_credentials }, region: 'us-west-2'
+	has_attached_file :avatar, :storage => :s3, s3_region: ENV['AWS_REGION'], :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 
  	def s3_credentials
 	    {:bucket => ENV['S3_BUCKET_NAME'],
