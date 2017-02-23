@@ -2,13 +2,12 @@ class Club < ApplicationRecord
 	
 	has_many :meetings
 
-	has_attached_file :avatar, :storage => :s3, :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
+	has_attached_file :avatar, :storage => :s3, :s3_credentials => Proc.new{|a| a.instance.s3_credentials }, region: 'us-west-2'
 
  	def s3_credentials
 	    {:bucket => ENV['S3_BUCKET_NAME'],
 	    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-	    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
-		region: 'us-west-2'}
+	    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']}
 	end
 
 	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
