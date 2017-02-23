@@ -154,6 +154,10 @@ body {
 		height: 300px;
 		padding: 15px;
 	}
+
+	.meeting-info {
+		padding-left: 15px;
+	}
 }
 
 @media all and (max-width: 1000px){
@@ -167,9 +171,18 @@ body {
 	}
 
 	#map {
-	height: 300px;
-	width: 300px;
-	margin: 1px;
+		height: 300px;
+		width: 300px;
+		margin: 1px;
+	}
+
+	.book-cover {
+		width: 100px;
+		height: auto;
+	}
+
+	.meeting-info {
+		padding-left: 15px;
 	}
 
 }
@@ -196,6 +209,15 @@ body {
 	height: 400px;
 	width: 400px;
 	margin: 1px;
+	}
+
+	.book-cover {
+		width: 150px;
+		height: auto;
+	}
+
+	.meeting-info {
+		padding-left: 1px;
 	}
 }
 

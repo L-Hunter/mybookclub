@@ -54,16 +54,18 @@
 					<div class="row all-clubs-display">
 						<div class="col-sm-3">
 							<% if meeting.choice %>
-								<%= image_tag meeting.book.image %>
+								<%= image_tag meeting.book.image, class: "book-cover" %>
 							<% end %>
 						</div>
 						<div class="col-sm-9">
+							<div class="meeting-info">
 							<p><span  class="highlight"><%= meeting.datetime.strftime("%B %d, %Y at %I:%M%p") %></span><br> 
 							<% if meeting.choice %>Book Selection: <%= meeting.choice.book.title %> by <%= meeting.choice.book.author %><br>
 							<% else %>No book has been selected for this meeting.<br>
 							<% end %>	
 							<%= link_to "View Meeting Details", club_meeting_path(@club, meeting), :method => "get" %>
 							</p>
+							</div>
 						</div>	
 					</div>
 				<% end %>
